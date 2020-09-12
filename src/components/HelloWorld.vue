@@ -94,7 +94,7 @@
     data: () => ({
       e6: 1,
       columns: [
-          { name: 'Hollyday', value: 'Hollyday', isOptional: true },
+          { name: 'Holyday', value: 'Holyday', isOptional: true },
           { name: 'Date', value: 'Date' },
           { name: 'DayOfweek', value: 'dayOfWeek' },
           { name: 'Period', value: 'period' },
