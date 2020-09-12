@@ -94,11 +94,13 @@
     data: () => ({
       e6: 1,
       columns: [
+          { name: 'Hollyday', value: 'Hollyday', isOptional: true },
           { name: 'Date', value: 'Date' },
           { name: 'DayOfweek', value: 'dayOfWeek' },
           { name: 'Period', value: 'period' },
           { name: 'StartTime', value: 'startTime' },
           { name: 'EndTime', value: 'endTime' },
+          { name: 'Type', value: 'type' },
           { name: 'Session', value: 'session', isOptional: true },
           { name: 'Emails', value: 'emails', isOptional: true },
           { name: 'Location', value: 'location', isOptional: true },
@@ -153,7 +155,7 @@
           var batch = gapi.client.newBatch();
         
           this.results.forEach((event) => {
-            if(event.Session) {
+            if(event.Session && !event.Hollyday) {
               var startDate = this.$moment(event.Date + " " + event.StartTime, "DD/MM/YY hh:mm:ss");
               var endDate = this.$moment(event.Date + " " + event.EndTime, "DD/MM/YY hh:mm:ss");             
 
