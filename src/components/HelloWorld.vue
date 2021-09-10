@@ -143,14 +143,15 @@ export default {
           var batch = gapi.client.newBatch();
 
           this.results.forEach((event) => {
-            if (event.Session && !event.Hollyday) {
+
+            if (event.Session && !event.Holyday) {
               var startDate = this.$moment(
                 event.StartDateTime + " " + event.StartTime,
-                "DD/MM/YY hh:mm:ss"
+                "DD/MM/YYYY hh:mm:ss"
               );
               var endDate = this.$moment(
                 event.StartDateTime + " " + event.EndTime,
-                "DD/MM/YY hh:mm:ss"
+                "DD/MM/YYYY hh:mm:ss"
               );
 
               var newEvent = {
@@ -173,11 +174,11 @@ export default {
               }
 
               batch.add(
-                gapi.client.calendar.events.insert({
-                  calendarId: "primary",
-                  resource: newEvent,
-                })
-              );
+                 gapi.client.calendar.events.insert({
+                   calendarId: "primary",
+                   resource: newEvent,
+                 })
+               );
             }
           });
 
